@@ -60,6 +60,11 @@ presente no repo é o que efetivamente é usado se existir. Auto-deploy no push 
 `main` varia por produto: alguns exigem aprovação manual, outros não — **verificar
 a configuração real do projeto, não assumir pelo padrão de outro produto**.
 
+**Direção (2026-10):** o ecossistema vai migrar da Railway para VPS própria com
+Coolify, com o Health Stay como piloto. Projeto novo já nasce com os requisitos de
+`08-infra-vps-control-plane.md` (Dockerfile, `/health/ready`, migrations fora do
+boot, `TRUST_PROXY`), o que serve tanto para a Railway quanto para a VPS.
+
 ### Observabilidade — obrigatória vs opcional
 
 Prometheus/Loki/Grafana é o padrão em produtos com tráfego relevante e múltiplos

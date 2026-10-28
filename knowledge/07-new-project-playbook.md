@@ -63,6 +63,9 @@ decide quais dos módulos abaixo você realmente precisa ler.
 [ ] Healthcheck /health e /health/ready respondendo 200 desde o primeiro deploy
 [ ] Validação de input em toda rota (Zod/Pydantic)
 [ ] Isolamento multi-tenant, se aplicável — nunca confiar em tenant_id do payload
+[ ] Dockerfile multi-stage + compose que roda igual local e no deploy, Trivy no CI
+    (requisitos completos em 08-infra-vps-control-plane.md)
+[ ] Segredos fora do repo e fora da imagem; .env.example documenta só os nomes
 ```
 
 ## Passo 6 — Instruções para agentes de IA

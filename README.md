@@ -59,6 +59,7 @@ knowledge/
   05-backend-conventions.md        ← regras de API — logs, rate limit, healthcheck
   06-skills-and-agents.md          ← papéis de agentes de IA, tool-agnostic
   07-new-project-playbook.md       ← checklist de kickoff + árvore de decisão
+  08-infra-vps-control-plane.md    ← VPS/Coolify, segredos (Infisical), CVE, observabilidade (🔧)
 ```
 
 ## Fonte de verdade e precedência
