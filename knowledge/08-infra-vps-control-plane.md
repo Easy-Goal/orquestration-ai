@@ -48,6 +48,23 @@ surgir necessidade real de segredo dinâmico de banco.
 [ ] Backup do banco com restauração testada antes de dado real
 ```
 
+### Desenvolvimento distribuído (API num host, front em outro)
+
+Padrão do piloto para simular a VPS antes de contratá-la e permitir trabalho em paralelo:
+
+| Host | Roda | Como expõe |
+|---|---|---|
+| "Servidor" (máquina de dev fazendo papel de VPS) | banco + migrations + API pelo **mesmo compose** da produção | porta só em `127.0.0.1`; `tailscale serve --tcp <porta>` (só tailnet) |
+| Máquina do front | `pnpm dev` do web | encaminha `localhost:<porta da API>` → host da API na tailnet (`socat` / `netsh portproxy`) |
+
+- O encaminhamento para `localhost` mantém web e API no **mesmo site**: cookie de sessão `SameSite=Lax`
+  funciona sem mudar código, CORS nem `WEB_ORIGIN`. Apontar o web direto para o IP da tailnet quebra a
+  sessão no F5.
+- **Divisão de escrita:** contrato e API só no host do backend; a máquina do front só consome a cópia
+  sincronizada (`contracts:sync` após o merge). Pedidos de rota nova vão para o backend, nunca editados
+  na cópia.
+- Nenhuma porta aberta para LAN/internet: a tailnet é o perímetro, igual ao da VPS.
+
 ### CVE ≠ rotação de credencial
 
 São fluxos diferentes — não acoplar:
