@@ -86,7 +86,7 @@ determina quais dos outros módulos deste repo são relevantes:
 
 | Se o projeto novo é... | Módulos relevantes |
 |---|---|
-| Um **produto SaaS satélite** (próprio banco, próprio backend) que vai vender no marketplace EG | `01-sso-auth.md` (modo Integrado ou Externo) + `02-integration-modes-gateways.md` + `03` + `04` + `05` |
+| Um **produto SaaS satélite** (próprio banco, próprio backend) que vai vender no marketplace EG | `01-sso-auth.md` (modo Integrado ou Externo) + `02-integration-modes-gateways.md` + `03` + `04` + `05` + `08` |
 | Um **app interno** sob `*.easygoal.com.br` (ex: nova LP, novo painel) | `01-sso-auth.md` (fluxo "App interno") + `03-monorepo-packages.md` + `04-frontend-conventions.md` |
 | Um **front-end puro** (LP, site de marketing) sem área logada pesada | `04-frontend-conventions.md` apenas, SSO opcional |
 | Um **novo package compartilhado** para o monorepo | `03-monorepo-packages.md` apenas |
